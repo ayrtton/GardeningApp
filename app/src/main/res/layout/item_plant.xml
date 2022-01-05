@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_plant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/cv_margin_start_end"
+        android:layout_marginEnd="@dimen/cv_margin_start_end"
+        android:layout_marginTop="@dimen/cv_margin_top_bottom"
+        android:layout_marginBottom="@dimen/cv_margin_top_bottom"
+        app:cardElevation="@dimen/cv_elevation"
+        app:cardCornerRadius="@dimen/cv_corner_radius"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/cv_ll_padding">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/cv_image_width_height"
+                android:layout_height="@dimen/cv_image_width_height"
+                app:cardCornerRadius="@dimen/cv_image_corner_radius"
+                android:layout_margin="@dimen/cv_image_margin" >
+                <ImageView
+                    android:id="@+id/iv_plant"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/description_plant_image" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cv_ll_margin_start"
+                android:layout_marginEnd="@dimen/cv_ll_margin_end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_specie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/cv_specie_text_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text_color"
+                    tools:text="Specie" />
+
+                <TextView
+                    android:id="@+id/tv_scientific_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/cv_scientific_name_text_size"
+                    android:textColor="@color/primary_text_color"
+                    android:layout_marginTop="@dimen/cv_scientific_name_margin_top"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    tools:text="Scientific name" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

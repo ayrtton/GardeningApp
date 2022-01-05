@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green01_medium"
+        android:theme="@style/CustomToolbarStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/sv_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="ScrollViewCount">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/constraint_guide_position" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/constraint_guide_position" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_place_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/input_image_margin_top"
+                android:layout_marginStart="@dimen/default_margin_start_end"
+                android:layout_marginEnd="@dimen/default_margin_start_end"
+                android:background="@drawable/shape_image_view_border"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_plant_placeholder"
+                app:layout_constraintDimensionRatio="16:9"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_specie"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_start_end"
+                android:layout_marginTop="@dimen/default_margin_top"
+                android:layout_marginEnd="@dimen/default_margin_start_end"
+                android:textColorHint="@color/secondary_text_color"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_place_image"
+                app:startIconTint="@color/secondary_text_color"
+                app:startIconDrawable="@drawable/ic_specie">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_specie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_text_specie"
+                    android:inputType="textCapSentences"
+                    android:textSize="@dimen/edit_text_text_size" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_scientific_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_start_end"
+                android:layout_marginTop="@dimen/default_margin_top"
+                android:layout_marginEnd="@dimen/default_margin_start_end"
+                android:textColorHint="@color/secondary_text_color"
+                app:startIconTint="@color/secondary_text_color"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toBottomOf="@id/til_specie"
+                app:startIconDrawable="@drawable/ic_book">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_scientific_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/scientific_name"
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/edit_text_text_size" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_description"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_start_end"
+                android:layout_marginTop="@dimen/default_margin_top"
+                android:layout_marginEnd="@dimen/default_margin_start_end"
+                android:textColorHint="@color/secondary_text_color"
+                app:startIconTint="@color/secondary_text_color"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toBottomOf="@id/til_scientific_name"
+                app:startIconDrawable="@drawable/ic_description">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_text_description"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/edit_text_text_size" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_watering_days"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_top"
+                app:cardCornerRadius="@dimen/card_view_corner_radius"
+                app:cardElevation="@dimen/card_view_elevation"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_view_content_padding"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toBottomOf="@id/til_description">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/watering_days"
+                        android:textColor="@color/green01_medium"
+                        android:textSize="@dimen/card_view_text_size" />
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/every_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/every_day"
+                        android:textColor="@color/green02_dark" />
+
+                    <LinearLayout
+                        android:id="@+id/checkbox_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_sunday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/sunday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_monday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/monday" />
+
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_tuesday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/tuesday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_wednesday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/wednesday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_thursday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/thursday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_friday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/friday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_saturday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="@string/saturday" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_watering_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_top"
+                app:cardCornerRadius="@dimen/card_view_corner_radius"
+                app:cardElevation="@dimen/card_view_elevation"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_view_content_padding"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toBottomOf="@id/cv_watering_days">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/watering_time"
+                        android:textColor="@color/green01_medium"
+                        android:textSize="@dimen/card_view_text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_watering_time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/card_view_text_padding"
+                            android:textColor="@color/green02_dark"
+                            android:textSize="@dimen/time_size"
+                            tools:text="23:30" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/default_margin_start_end"
+                android:layout_marginTop="@dimen/default_margin_top"
+                android:layout_marginEnd="@dimen/default_margin_start_end"
+                android:layout_marginBottom="@dimen/button_margin_bottom"
+                android:background="@drawable/shape_button_rounded"
+                android:gravity="center"
+                android:paddingTop="@dimen/button_padding"
+                android:paddingBottom="@dimen/button_padding"
+                android:text="@string/btn_save"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintTop_toBottomOf="@id/cv_watering_time"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guide_end"
+                app:layout_constraintStart_toStartOf="@id/guide_start" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

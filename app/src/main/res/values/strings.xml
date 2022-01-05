@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Gardening App</string>
+    <string name="floating_action_button">Floating Action Button</string>
+    <string name="plants">Plants</string>
+    <string name="edit_text_specie">Specie</string>
+    <string name="btn_save">Save</string>
+    <string name="watering_days">Watering days</string>
+    <string name="watering_time">Watering time</string>
+    <string name="every_day">Every day</string>
+    <string name="text_add_image">Add image</string>
+    <string name="description_empty_plant_list">Empty plant list</string>
+    <string name="no_plants_found">No plants found yet...</string>
+    <string name="description_plant_image">Plant image</string>
+    <string name="edit_text_description">Description</string>
+    <string name="sunday">S</string>
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">T</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    <string name="leaf_header">Leaf header</string>
+    <string name="plant_icon">Plant icon</string>
+    <string name="scientific_name">Scientific name</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="list_all">List all</string>
+    <string name="list_by_watering_day">List by watering day</string>
+</resources>

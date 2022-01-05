@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PlantDetailsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green01_medium"
+        android:theme="@style/CustomToolbarStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/sv_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_plant_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_plant_placeholder"
+                app:layout_constraintDimensionRatio="16:12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_specie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/details_text_margin"
+                android:layout_marginTop="@dimen/text_view_margin"
+                android:layout_marginEnd="@dimen/details_text_margin"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/specie_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.533"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_plant_image"
+                tools:text="Specie" />
+
+            <TextView
+                android:id="@+id/tv_scientific_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin_start"
+                android:layout_marginTop="@dimen/specie_tv_margin_top"
+                android:textSize="@dimen/details_specie_text_size"
+                android:textStyle="italic"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.533"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_specie"
+                tools:text="Specie"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/details_text_margin"
+                android:layout_marginTop="@dimen/description_tv_margin_top"
+                android:layout_marginEnd="@dimen/details_text_margin"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/description_text_size"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.533"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_scientific_name"
+                tools:text="Description"
+                tools:visibility="visible" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_watering_days"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_view_margin"
+                android:layout_marginTop="@dimen/default_margin_top"
+                android:layout_marginEnd="@dimen/text_view_margin"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/card_view_corner_radius"
+                app:cardElevation="@dimen/card_view_elevation"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_view_content_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/watering_days"
+                        android:textColor="@color/green01_medium"
+                        android:textSize="@dimen/card_view_text_size" />
+
+                    <LinearLayout
+                        android:id="@+id/checkbox_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/checkbox_ll_margin_top"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_sunday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/sunday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_monday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/monday" />
+
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_tuesday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/tuesday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_wednesday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/wednesday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_thursday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/thursday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_friday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/friday" />
+
+                        <com.example.gardeningapp.utils.DayViewCheckBox
+                            android:id="@+id/dv_saturday"
+                            android:layout_width="@dimen/check_box_width_height"
+                            android:layout_height="@dimen/check_box_width_height"
+                            android:layout_margin="@dimen/check_box_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_day_view"
+                            android:button="@null"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/saturday" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_watering_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_view_margin"
+                android:layout_marginTop="@dimen/default_margin_top"
+                android:layout_marginEnd="@dimen/text_view_margin"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/card_view_corner_radius"
+                app:cardElevation="@dimen/card_view_elevation"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_view_content_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_watering_days"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/watering_time"
+                        android:textColor="@color/green01_medium"
+                        android:textSize="@dimen/card_view_text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_watering_time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/card_view_text_padding"
+                            android:textColor="@color/green02_dark"
+                            android:textSize="@dimen/time_size"
+                            tools:text="23:30" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

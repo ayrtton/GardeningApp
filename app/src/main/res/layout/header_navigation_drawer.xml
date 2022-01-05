@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_leaf"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/header_img_height"
+        android:src="@drawable/ic_leaf"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/leaf_header" />
+
+    <ImageView
+        android:id="@+id/ic_icon"
+        android:layout_width="@dimen/header_icon_width_height"
+        android:layout_height="@dimen/header_icon_width_height"
+        android:layout_marginStart="@dimen/header_icon_margin_start_top"
+        android:layout_marginTop="@dimen/header_icon_margin_start_top"
+        android:paddingBottom="@dimen/header_icon_padding_bottom"
+        android:contentDescription="@string/plant_icon"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_leaf" />
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginTop="@dimen/header_title_margin_top"
+        android:layout_marginStart="@dimen/header_title_margin_start"
+        android:textSize="@dimen/header_title_text_size"
+        android:textColor="@color/primary_text_color"
+        app:layout_constraintTop_toTopOf="@id/ic_icon"
+        app:layout_constraintStart_toEndOf="@id/ic_icon"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
